@@ -75,22 +75,12 @@ jobs:
         run: |
           cd friendlywrt-h5/friendlywrt/package
           git clone https://github.com/Baozisoftware/luci-app-koolproxy
-          git clone https://github.com/shadowsocks/luci-app-shadowsocks.git
-          git clone https://github.com/shadowsocks/openwrt-feeds.git
-          git clone https://github.com/shadowsocks/openwrt-shadowsocks.git
 
       - name: Update Target.mk
         run: |
           cd friendlywrt-h5/friendlywrt/include 
-          sed -i 's/dnsmasq /dnsmasq-full default-settings luci /' target.mk    
-          
-      - name: Update po2lmo
-        run: |
-          cd friendlywrt-h5/friendlywrt
-          pushd package/luci-app-shadowsocks/tools/po2lmo
-          make && sudo make install
-          popd
-          
+          sed -i 's/dnsmasq /dnsmasq-full default-settings luci /' target.mk
+
       - name: Update Feeds
         run: |
           cd friendlywrt-h5/friendlywrt
@@ -101,8 +91,8 @@ jobs:
         run: |
           cd friendlywrt-h5/friendlywrt
           rm -f ./.config*
-          wget https://raw.githubusercontent.com/com388488/NanoPi-R1S-Build-By-Actions/master/r1s-h5-config
-          cp r1s-h5-config .config
+          wget https://raw.githubusercontent.com/com388488/NanoPi-R1S-Build-By-Actions/master/new-r1s-h5-config
+          cp new-r1s-h5-config .config
       
       - name: Download package
         if: always()
