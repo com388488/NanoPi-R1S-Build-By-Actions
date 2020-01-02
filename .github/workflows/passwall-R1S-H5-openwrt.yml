@@ -85,7 +85,7 @@ jobs:
       - name: Update Feeds
         run: |
           cd friendlywrt-h5/friendlywrt
-		  ./scripts/feeds clean
+          ./scripts/feeds clean
           ./scripts/feeds update -a
           rm -rf feeds/lienol/lienol/v2ray
           rm -rf feeds/lienol/lienol/openssl1.1
