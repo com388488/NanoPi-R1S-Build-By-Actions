@@ -8,19 +8,19 @@
 # Write by Jolly 2019/12/7
 # last update at 2019/12/19
 
-name: passwall-R1S-H5-openwrt Build
+name: vssr-R1S-H5-openwrt Build
 
 on:
-  push:
-    branches: 
-      - master
+  # push:
+  #   branches: 
+  #     - master
   # schedule:
   #   - cron: 0 20 * * 5
   # release:
   #   types: [published]
 
-  # watch:
-  #   types: [started]
+  watch:
+    types: [started]
 
 jobs:
 
@@ -86,6 +86,10 @@ jobs:
         run: |
           cd friendlywrt-h5/friendlywrt
           ./scripts/feeds update -a
+          rm -f ./feeds/packages/libs/libmaxminddb/Makefile
+          rm -f ./feeds/packages/blob/master/lang/python/python3-maxminddb/Makefile
+          wget -P ./feeds/packages/libs/libmaxminddb/ https://github.com/openwrt/packages/tree/master/libs/libmaxminddb/Makefile 
+          wget -P ./feeds/packages/blob/master/lang/python/python3-maxminddb https://github.com/openwrt/packages/blob/master/lang/python/python3-maxminddb/Makefile
           ./scripts/feeds install -a
           
       - name: Costom Configure File
