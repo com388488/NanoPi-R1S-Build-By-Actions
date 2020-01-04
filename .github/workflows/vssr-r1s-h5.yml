@@ -88,8 +88,8 @@ jobs:
           ./scripts/feeds update -a
           rm -f ./feeds/packages/libs/libmaxminddb/Makefile
           rm -f ./feeds/packages/blob/master/lang/python/python3-maxminddb/Makefile
-          wget -P ./feeds/packages/libs/libmaxminddb/ https://github.com/openwrt/packages/tree/master/libs/libmaxminddb/Makefile 
-          wget -P ./feeds/packages/blob/master/lang/python/python3-maxminddb https://github.com/openwrt/packages/blob/master/lang/python/python3-maxminddb/Makefile
+          wget -P ./feeds/packages/libs/libmaxminddb/ https://raw.githubusercontent.com/openwrt/packages/master/libs/libmaxminddb/Makefile 
+          wget -P ./feeds/packages/blob/master/lang/python/python3-maxminddb https://raw.githubusercontent.com/openwrt/packages/master/lang/python/python3-maxminddb/Makefile
           ./scripts/feeds install -a
           
       - name: Costom Configure File
