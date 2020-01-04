@@ -11,9 +11,9 @@
 name: passwall-R1S-H5-openwrt Build
 
 on:
-  push:
-    branches: 
-      - master
+  #push:
+  #  branches: 
+  #    - master
   # schedule:
   #   - cron: 0 20 * * 5
   # release:
